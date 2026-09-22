@@ -33,6 +33,7 @@ type FormState = {
   room: string
   teacher: string
   notes: string
+  extracurricular: boolean
   oneOff: boolean
   date: string
 }
@@ -46,6 +47,7 @@ const toForm = (d: LessonDraft): FormState => ({
   room: d.room ?? '',
   teacher: d.teacher ?? '',
   notes: d.notes ?? '',
+  extracurricular: !!d.extracurricular,
   oneOff: !!d.date,
   date: d.date ?? '',
 })
@@ -114,6 +116,7 @@ export function LessonFormSheet() {
       room: state.room.trim() || undefined,
       teacher: state.teacher.trim() || undefined,
       notes: state.notes.trim() || undefined,
+      extracurricular: state.extracurricular || undefined,
       date: state.oneOff ? state.date : undefined,
     }
     const st = useSchedule.getState()
@@ -231,6 +234,14 @@ export function LessonFormSheet() {
 
         <div className="toggle-row">
           <div>
+            <div className="toggle-title">Внеурочное занятие</div>
+            <div className="toggle-desc">Кружок или курс внеурочной деятельности в расписании школы</div>
+          </div>
+          <Switch checked={state.extracurricular} onChange={(v) => set('extracurricular', v)} label="Внеурочное занятие" />
+        </div>
+
+        <div className="toggle-row">
+          <div>
             <div className="toggle-title">Только в конкретную дату</div>
             <div className="toggle-desc">Разовый урок или замена — не повторяется каждую неделю</div>
           </div>
@@ -262,7 +273,7 @@ export function LessonViewSheet() {
   const rows = [
     { icon: Clock, label: 'Время', value: `${l.start} — ${l.end} · ${humanMinutes(durationMinutes(l))}` },
     { icon: CalendarDays, label: 'День', value: l.date ? `${weekdayInfo(l.day).full}, ${formatDayMonth(fromISODate(l.date))} (разово)` : `${weekdayInfo(l.day).full}, каждую неделю` },
-    l.number !== undefined && { icon: Hash, label: 'Номер', value: `${l.number} урок` },
+    l.number !== undefined && { icon: Hash, label: 'Номер', value: `${l.number} урок${l.extracurricular ? ' · внеурочное' : ''}` },
     l.room && { icon: MapPin, label: 'Кабинет', value: l.room },
     l.teacher && { icon: User, label: 'Учитель', value: l.teacher },
     l.notes && { icon: StickyNote, label: 'Заметки', value: l.notes },

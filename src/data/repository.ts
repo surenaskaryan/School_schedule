@@ -56,21 +56,7 @@ export class HttpRepository implements ScheduleRepository {
 
 export const repository: ScheduleRepository = new LocalStorageRepository()
 
-/**
- * Первый запуск: сохранённые данные → `initial-schedule.json` рядом с сайтом
- * (файл, полученный из исходного расписания) → пустой seed.
- */
+/** Первый запуск: сохранённые данные, иначе — исходное расписание из файла (seed). */
 export async function loadInitialData(repo: ScheduleRepository = repository): Promise<AppData> {
-  const stored = await repo.load()
-  if (stored) return stored
-  try {
-    const res = await fetch(`${import.meta.env.BASE_URL}initial-schedule.json`, { cache: 'no-store' })
-    if (res.ok) {
-      const data = sanitizeAppData(await res.json())
-      if (data) return data
-    }
-  } catch {
-    /* файла нет — это нормально */
-  }
-  return createSeed()
+  return (await repo.load()) ?? createSeed()
 }

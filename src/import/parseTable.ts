@@ -270,16 +270,25 @@ function parseGrid(rows: Cell[][], yearHint: number, bells: Map<number, { start:
   })
 
   const firstDayCol = Math.min(...dayCols.map((d) => d.col))
-  const out: Draft[] = []
-  for (let r = headerRow + 1; r < rows.length; r++) {
-    const row = rows[r]
-    const leftTexts = row.slice(0, firstDayCol).map(cellText)
+  const rowKey = (row: Cell[]) => {
     let number: number | undefined
     let time: { start: string; end: string } | null = null
-    for (const t of leftTexts) {
+    for (const t of row.slice(0, firstDayCol).map(cellText)) {
       if (number === undefined) number = leadingNumber(t)
       if (!time) time = parseTimeRange(t)
     }
+    return { number, time }
+  }
+  // Если у уроков в таблице есть номер или время, строки без них — подписи и легенда, а не уроки.
+  const keyed = rows.slice(headerRow + 1).some((row) => {
+    const k = rowKey(row)
+    return k.number !== undefined || k.time
+  })
+  const out: Draft[] = []
+  for (let r = headerRow + 1; r < rows.length; r++) {
+    const row = rows[r]
+    const { number, time } = rowKey(row)
+    if (keyed && number === undefined && !time) continue
     if (number !== undefined && time) bells.set(number, time)
 
     for (const dc of dayCols) {

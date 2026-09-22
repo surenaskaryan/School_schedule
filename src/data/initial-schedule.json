@@ -1,0 +1,285 @@
+{
+  "source": {
+    "name": "raspisanie_urokov_starshego.xlsx",
+    "importedAt": "2026-09-22T00:00:00.000Z"
+  },
+  "lessons": [
+    {
+      "id": "mon-1",
+      "day": 1,
+      "order": 0,
+      "number": 1,
+      "subject": "Разговоры о важном",
+      "start": "08:30",
+      "end": "09:10",
+      "extracurricular": true
+    },
+    {
+      "id": "mon-2",
+      "day": 1,
+      "order": 1,
+      "number": 2,
+      "subject": "Русский язык",
+      "start": "09:20",
+      "end": "10:00"
+    },
+    {
+      "id": "mon-3",
+      "day": 1,
+      "order": 2,
+      "number": 3,
+      "subject": "Математика",
+      "start": "10:10",
+      "end": "10:50"
+    },
+    {
+      "id": "mon-4",
+      "day": 1,
+      "order": 3,
+      "number": 4,
+      "subject": "Литературное чтение",
+      "start": "11:10",
+      "end": "11:50"
+    },
+    {
+      "id": "mon-5",
+      "day": 1,
+      "order": 4,
+      "number": 5,
+      "subject": "Окружающий мир",
+      "start": "12:10",
+      "end": "12:50"
+    },
+    {
+      "id": "mon-6",
+      "day": 1,
+      "order": 5,
+      "number": 6,
+      "subject": "Орлята России",
+      "start": "13:10",
+      "end": "13:50",
+      "extracurricular": true
+    },
+    {
+      "id": "tue-1",
+      "day": 2,
+      "order": 0,
+      "number": 1,
+      "subject": "Литературное чтение",
+      "start": "08:30",
+      "end": "09:10"
+    },
+    {
+      "id": "tue-2",
+      "day": 2,
+      "order": 1,
+      "number": 2,
+      "subject": "Физ-ра",
+      "start": "09:20",
+      "end": "10:00"
+    },
+    {
+      "id": "tue-3",
+      "day": 2,
+      "order": 2,
+      "number": 3,
+      "subject": "Русский язык",
+      "start": "10:10",
+      "end": "10:50"
+    },
+    {
+      "id": "tue-4",
+      "day": 2,
+      "order": 3,
+      "number": 4,
+      "subject": "Математика",
+      "start": "11:10",
+      "end": "11:50"
+    },
+    {
+      "id": "tue-5",
+      "day": 2,
+      "order": 4,
+      "number": 5,
+      "subject": "Технология",
+      "start": "12:10",
+      "end": "12:50"
+    },
+    {
+      "id": "tue-6",
+      "day": 2,
+      "order": 5,
+      "number": 6,
+      "subject": "Занимательный русский",
+      "start": "13:10",
+      "end": "13:50",
+      "extracurricular": true
+    },
+    {
+      "id": "wed-1",
+      "day": 3,
+      "order": 0,
+      "number": 1,
+      "subject": "Русский язык",
+      "start": "08:30",
+      "end": "09:10"
+    },
+    {
+      "id": "wed-2",
+      "day": 3,
+      "order": 1,
+      "number": 2,
+      "subject": "Математика",
+      "start": "09:20",
+      "end": "10:00"
+    },
+    {
+      "id": "wed-3",
+      "day": 3,
+      "order": 2,
+      "number": 3,
+      "subject": "Окружающий мир",
+      "start": "10:10",
+      "end": "10:50"
+    },
+    {
+      "id": "wed-4",
+      "day": 3,
+      "order": 3,
+      "number": 4,
+      "subject": "Музыка",
+      "start": "11:10",
+      "end": "11:50"
+    },
+    {
+      "id": "wed-5",
+      "day": 3,
+      "order": 4,
+      "number": 5,
+      "subject": "Практикум по математике",
+      "start": "12:10",
+      "end": "12:50"
+    },
+    {
+      "id": "wed-6",
+      "day": 3,
+      "order": 5,
+      "number": 6,
+      "subject": "Чтение со смыслом",
+      "start": "13:10",
+      "end": "13:50",
+      "extracurricular": true
+    },
+    {
+      "id": "thu-1",
+      "day": 4,
+      "order": 0,
+      "number": 1,
+      "subject": "Литературное чтение",
+      "start": "08:30",
+      "end": "09:10"
+    },
+    {
+      "id": "thu-2",
+      "day": 4,
+      "order": 1,
+      "number": 2,
+      "subject": "Русский язык",
+      "start": "09:20",
+      "end": "10:00"
+    },
+    {
+      "id": "thu-3",
+      "day": 4,
+      "order": 2,
+      "number": 3,
+      "subject": "Английский язык",
+      "start": "10:10",
+      "end": "10:50"
+    },
+    {
+      "id": "thu-4",
+      "day": 4,
+      "order": 3,
+      "number": 4,
+      "subject": "ИЗО",
+      "start": "11:10",
+      "end": "11:50"
+    },
+    {
+      "id": "thu-5",
+      "day": 4,
+      "order": 4,
+      "number": 5,
+      "subject": "Функциональная грамотность",
+      "start": "12:10",
+      "end": "12:50",
+      "extracurricular": true
+    },
+    {
+      "id": "thu-6",
+      "day": 4,
+      "order": 5,
+      "number": 6,
+      "subject": "В мире профессий",
+      "start": "13:10",
+      "end": "13:50",
+      "extracurricular": true
+    },
+    {
+      "id": "fri-1",
+      "day": 5,
+      "order": 0,
+      "number": 1,
+      "subject": "Литературное чтение",
+      "start": "08:30",
+      "end": "09:10"
+    },
+    {
+      "id": "fri-2",
+      "day": 5,
+      "order": 1,
+      "number": 2,
+      "subject": "Русский язык",
+      "start": "09:20",
+      "end": "10:00"
+    },
+    {
+      "id": "fri-3",
+      "day": 5,
+      "order": 2,
+      "number": 3,
+      "subject": "Математика",
+      "start": "10:10",
+      "end": "10:50"
+    },
+    {
+      "id": "fri-4",
+      "day": 5,
+      "order": 3,
+      "number": 4,
+      "subject": "Физ-ра",
+      "start": "11:10",
+      "end": "11:50"
+    },
+    {
+      "id": "fri-5",
+      "day": 5,
+      "order": 4,
+      "number": 5,
+      "subject": "Английский язык",
+      "start": "12:10",
+      "end": "12:50"
+    },
+    {
+      "id": "fri-6",
+      "day": 5,
+      "order": 5,
+      "number": 6,
+      "subject": "Экология",
+      "start": "13:10",
+      "end": "13:50",
+      "extracurricular": true
+    }
+  ]
+}

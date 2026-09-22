@@ -32,13 +32,13 @@ export function SettingsPage() {
 
   const reset = async () => {
     const ok = await confirmAction({
-      title: 'Сбросить все данные?',
-      text: 'Уроки, секции и настройки будут удалены с этого устройства. Сначала лучше сохранить резервную копию.',
+      title: 'Вернуть исходное расписание?',
+      text: 'Все изменения уроков, секции и настройки на этом устройстве будут удалены, расписание вернётся к исходному файлу. Сначала лучше сохранить резервную копию.',
       confirmLabel: 'Сбросить',
     })
     if (!ok) return
     useSchedule.getState().resetAll()
-    toast('Данные сброшены')
+    toast('Исходное расписание восстановлено')
   }
 
   return (
@@ -134,8 +134,8 @@ export function SettingsPage() {
             <button className="row row--button row--danger" onClick={reset}>
               <span className="row-icon"><RotateCcw size={17} /></span>
               <span className="row-text">
-                <span className="row-title">Сбросить все данные</span>
-                <span className="row-desc">Очистить расписание на этом устройстве</span>
+                <span className="row-title">Сбросить к исходному</span>
+                <span className="row-desc">Вернуть расписание из файла и удалить все изменения</span>
               </span>
             </button>
           </div>

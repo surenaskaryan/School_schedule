@@ -33,6 +33,7 @@ export const sanitizeLesson = (v: unknown, fallbackOrder = 0): Lesson | null => 
     room: optStr(v.room),
     teacher: optStr(v.teacher),
     notes: optStr(v.notes),
+    extracurricular: v.extracurricular === true ? true : undefined,
     date: isISODate(v.date) ? v.date : undefined,
   }
 }

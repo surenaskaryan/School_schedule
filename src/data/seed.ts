@@ -1,15 +1,17 @@
-import type { AppData } from '../domain/types'
+import type { AppData, Lesson } from '../domain/types'
+import initial from './initial-schedule.json'
 import { uid } from './uid'
 
 /**
- * Начальное состояние. Уроков здесь нет намеренно: расписание берётся
- * только из реального файла (Настройки → Импорт) или вводится вручную.
- * Если рядом с приложением лежит `initial-schedule.json`, он загружается
- * при первом запуске (см. loadInitialData).
+ * Начальное состояние при первом запуске.
+ * Уроки — из реального файла расписания (raspisanie_urokov_starshego.xlsx),
+ * перенесены в initial-schedule.json. Время уроков: звонки из того же файла.
+ * Кабинеты и учителя в файле не указаны — их можно добавить в приложении.
  */
 export const createSeed = (): AppData => ({
   schemaVersion: 1,
-  lessons: [],
+  lessons: initial.lessons.map((l) => ({ ...l }) as Lesson),
+  source: { ...initial.source },
   sections: [
     { id: uid(), title: 'Домашние задания', icon: 'notebook', accent: 'violet', kind: 'tasks', order: 0, items: [] },
     { id: uid(), title: 'Кружки и тренировки', icon: 'dumbbell', accent: 'green', kind: 'activities', order: 1, items: [] },

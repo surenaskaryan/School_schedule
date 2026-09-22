@@ -35,6 +35,8 @@ export interface Lesson {
   room?: string
   teacher?: string
   notes?: string
+  /** Внеурочное занятие (в школьных таблицах часто выделено цветом). */
+  extracurricular?: boolean
   /**
    * Если указана дата (YYYY-MM-DD) — урок разовый и показывается только в этот день.
    * Без даты — урок повторяется каждую неделю.

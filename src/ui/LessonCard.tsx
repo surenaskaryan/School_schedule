@@ -59,6 +59,7 @@ export function LessonCard({
           <div className="lesson-kicker">
             {lesson.number !== undefined && <span className="tnum">{lesson.number} урок</span>}
             <span className="lesson-kicker-time tnum">{lesson.start} — {lesson.end}</span>
+            {lesson.extracurricular && <span className="pill pill--soft">внеурочное</span>}
             {lesson.date && <span className="pill pill--soft">разово</span>}
             {state === 'current' && (
               <span className="live">
