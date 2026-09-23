@@ -127,8 +127,8 @@ export function HomePage() {
         </div>
 
         <aside className="home-side">
-          <WeekCard now={now} />
           <UpcomingCard now={now} />
+          <WeekCard now={now} />
         </aside>
       </div>
     </div>
@@ -280,7 +280,7 @@ function WeekCard({ now }: { now: Date }) {
   const weekStart = startOfWeek(now)
   const todayIso = toISODate(now)
   return (
-    <section className="card week-card rise rise-2">
+    <section className="card week-card rise rise-3">
       <h2 className="card-title">Неделя</h2>
       <div className="week-list">
         {days.map((d) => {
@@ -336,34 +336,33 @@ function UpcomingCard({ now }: { now: Date }) {
   )
   items.sort((a, b) => (a.it.date ?? '9999').localeCompare(b.it.date ?? '9999'))
 
+  // Нечего показывать — блок не занимает место, «Неделя» встаёт сразу после уроков.
+  if (!items.length) return null
+
   return (
-    <section className="card upcoming-card rise rise-3">
+    <section className="card upcoming-card rise rise-2">
       <div className="card-title-row">
         <h2 className="card-title">Скоро</h2>
         <a className="link-btn" href="#/sections">Секции <ArrowRight size={14} /></a>
       </div>
-      {items.length === 0 ? (
-        <p className="muted small">Нет задач и событий на ближайшие дни.</p>
-      ) : (
-        <ul className="upcoming-list">
-          {items.slice(0, 6).map(({ it, s }) => {
-            const Icon = sectionIcon(s.icon)
-            const when =
-              s.kind === 'activities' ? `сегодня${it.time ? ` в ${it.time}` : ''}`
-                : it.date ? (it.date === todayIso ? 'сегодня' : formatLongDate(new Date(it.date + 'T00:00')).split(' · ')[1])
-                  : ''
-            return (
-              <li key={it.id} style={accentVars(s.accent)}>
-                <button className="upcoming-row" onClick={() => useEditor.getState().openItemForm({ sectionId: s.id, itemId: it.id })}>
-                  <span className="upcoming-icon"><Icon size={14} /></span>
-                  <span className="upcoming-title">{it.title}</span>
-                  {when && <span className="upcoming-when">{when}</span>}
-                </button>
-              </li>
-            )
-          })}
-        </ul>
-      )}
+      <ul className="upcoming-list">
+        {items.slice(0, 6).map(({ it, s }) => {
+          const Icon = sectionIcon(s.icon)
+          const when =
+            s.kind === 'activities' ? `сегодня${it.time ? ` в ${it.time}` : ''}`
+              : it.date ? (it.date === todayIso ? 'сегодня' : formatLongDate(new Date(it.date + 'T00:00')).split(' · ')[1])
+                : ''
+          return (
+            <li key={it.id} style={accentVars(s.accent)}>
+              <button className="upcoming-row" onClick={() => useEditor.getState().openItemForm({ sectionId: s.id, itemId: it.id })}>
+                <span className="upcoming-icon"><Icon size={14} /></span>
+                <span className="upcoming-title">{it.title}</span>
+                {when && <span className="upcoming-when">{when}</span>}
+              </button>
+            </li>
+          )
+        })}
+      </ul>
     </section>
   )
 }
